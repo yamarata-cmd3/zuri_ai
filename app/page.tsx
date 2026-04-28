@@ -70,7 +70,7 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
 // ─── Pill tag ─────────────────────────────────────────────────────────────────
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-black/40 bg-black/[0.04]">
+    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-white/50 bg-white/[0.06]">
       {children}
     </span>
   )
@@ -100,7 +100,7 @@ export default function AgenticPage() {
   }
 
   return (
-    <div className="bg-[#F5F4F0] text-[#111] min-h-screen font-sans antialiased">
+    <div className="min-h-screen font-sans antialiased" style={{ background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)" }}>
 
       {/* ── INTRO ANIMATION ───────────────────────────────────────────────── */}
       <IntroAnimation onDone={handleIntroDone} />
@@ -127,8 +127,8 @@ export default function AgenticPage() {
 
 
 
-        {/* Progressive blur + light gradient rising from bottom */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ height: "65%", background: "linear-gradient(to top, #F5F4F0 0%, #F5F4F0 18%, rgba(245,244,240,0.85) 35%, rgba(245,244,240,0.5) 55%, rgba(245,244,240,0.15) 75%, transparent 100%)" }} />
+        {/* Progressive blur + dark gradient rising from bottom */}
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ height: "65%", background: "linear-gradient(to top, #0f172a 0%, #0f172a 18%, rgba(15,23,42,0.85) 35%, rgba(15,23,42,0.5) 55%, rgba(15,23,42,0.15) 75%, transparent 100%)" }} />
         {/* Backdrop blur layers — progressively lighter toward top */}
         <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ height: "20%", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", maskImage: "linear-gradient(to top, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 100%)" }} />
         <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ height: "38%", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", maskImage: "linear-gradient(to top, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 100%)" }} />
@@ -141,7 +141,7 @@ export default function AgenticPage() {
         <div className="absolute inset-x-0 bottom-0 z-30 flex flex-col px-6 md:px-12 pb-12 max-w-3xl">
           {/* Title */}
           <h1
-            className="text-6xl sm:text-7xl md:text-8xl font-light text-[#111] leading-[1.0] tracking-tight mb-10"
+            className="text-6xl sm:text-7xl md:text-8xl font-light text-white/95 leading-[1.0] tracking-tight mb-10"
             style={{
               fontFamily: '"IBM Plex Sans", sans-serif',
               opacity: heroReady ? 1 : 0,
@@ -169,8 +169,8 @@ export default function AgenticPage() {
                   transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${120 + i * 80}ms, filter 0.8s cubic-bezier(0.16,1,0.3,1) ${120 + i * 80}ms, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${120 + i * 80}ms`,
                 }}
               >
-                <div className="text-3xl sm:text-4xl text-[#111] font-light tracking-tight" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.value}</div>
-                <div className="text-xs text-black/40 tracking-widest uppercase mt-1" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.label}</div>
+                <div className="text-3xl sm:text-4xl text-white/95 font-light tracking-tight" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.value}</div>
+                <div className="text-xs text-white/50 tracking-widest uppercase mt-1" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -181,9 +181,9 @@ export default function AgenticPage() {
       <section id="platform" className="py-32 px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <PixelIcon type="platform" size={40} />
+            <PixelIcon type="platform" size={40} dark />
             <div className="mt-4"><Tag>PLATFORM</Tag></div>
-            <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05]">
+            <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05] text-white/95">
               {"Everything you need\nto run a hotel. Automatically."}
             </RevealText>
           </div>
@@ -283,13 +283,13 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div>
-              <PixelIcon type="agents" size={40} />
+              <PixelIcon type="agents" size={40} dark />
               <div className="mt-4"><Tag>ZURI FEATURES</Tag></div>
-              <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
+              <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05] text-white/95">
                 {"Six intelligent modules.\nOne unified system."}
               </RevealText>
             </div>
-            <p className="text-sm text-black/45 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
               {"Every feature is live, tested, and proven in real hotel environments. No demos, no mockups — real results."}
             </p>
           </div>
@@ -299,12 +299,12 @@ export default function AgenticPage() {
       </section>
 
       {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
-      <section id="workflow" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06] overflow-hidden">
+      <section id="workflow" className="py-32 px-6 md:px-12 lg:px-20 border-t border-white/[0.06] overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <PixelIcon type="workflow" size={40} />
+            <PixelIcon type="workflow" size={40} dark />
             <div className="mt-4"><Tag>HOW IT WORKS</Tag></div>
-            <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
+            <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05] text-white/95">
               {"From chaos to control\nin four steps."}
             </RevealText>
           </div>
@@ -383,19 +383,19 @@ export default function AgenticPage() {
       </section>
 
       {/* ── INTEGRATIONS ──────────────────────────────────────────────────── */}
-      <section id="integrations" className="border-t border-black/[0.06]">
-        {/* Top: White section with scrolling integration tags */}
-        <div className="py-16 px-6 md:px-12 lg:px-20 bg-white">
+      <section id="integrations" className="border-t border-white/[0.06]">
+        {/* Top: Dark section with scrolling integration tags */}
+        <div className="py-16 px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto mb-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
               <div>
-                <PixelIcon type="integrations" size={40} />
+                <PixelIcon type="integrations" size={40} dark />
                 <div className="mt-4"><Tag>INTEGRATIONS</Tag></div>
-                <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
+                <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05] text-white/95">
                   {"Connects to what\nyou already use."}
                 </RevealText>
               </div>
-              <p className="text-sm text-black/45 leading-relaxed max-w-xs">
+              <p className="text-sm text-white/50 leading-relaxed max-w-xs">
                 Slack for alerts. WhatsApp for guest communication. Your existing cameras. Your POS system.
               </p>
             </div>
@@ -403,13 +403,13 @@ export default function AgenticPage() {
           
           {/* Scrolling integration marquee */}
           <div className="overflow-hidden select-none -mx-6 md:-mx-12 lg:-mx-20">
-            <div className="flex border-y border-black/[0.06]" style={{ animation: "marqueeLeft 28s linear infinite" }}>
+            <div className="flex border-y border-white/[0.06]" style={{ animation: "marqueeLeft 28s linear infinite" }}>
               {[...Array(3)].map((_, rep) => (
                 <div key={rep} className="flex shrink-0">
                   {["Task Automation", "CCTV Analysis", "Revenue Tracking", "Inventory Control", "Guest Messaging", "Staff Management"].map((cap) => (
-                    <div key={cap} className="flex items-center gap-4 px-8 py-4 border-r border-black/[0.06] shrink-0">
+                    <div key={cap} className="flex items-center gap-4 px-8 py-4 border-r border-white/[0.06] shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                      <span className="text-sm text-black/60 whitespace-nowrap tracking-wide">{cap}</span>
+                      <span className="text-sm text-white/70 whitespace-nowrap tracking-wide">{cap}</span>
                     </div>
                   ))}
                 </div>
@@ -419,9 +419,9 @@ export default function AgenticPage() {
               {[...Array(3)].map((_, rep) => (
                 <div key={rep} className="flex shrink-0">
                   {["Maintenance", "Front Desk", "Pool Bar", "Kitchen Stock", "Theft Detection", "Access Control", "WhatsApp"].map((cap) => (
-                    <div key={cap} className="flex items-center gap-4 px-8 py-4 border-r border-black/[0.06] shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-black/20 shrink-0" />
-                      <span className="text-sm text-black/40 whitespace-nowrap tracking-wide">{cap}</span>
+                    <div key={cap} className="flex items-center gap-4 px-8 py-4 border-r border-white/[0.06] shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/25 shrink-0" />
+                      <span className="text-sm text-white/50 whitespace-nowrap tracking-wide">{cap}</span>
                     </div>
                   ))}
                 </div>
@@ -479,9 +479,9 @@ export default function AgenticPage() {
       <section id="security" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
-            <PixelIcon type="platform" size={40} />
+            <PixelIcon type="platform" size={40} dark />
             <div className="mt-4"><Tag>TRUST & SECURITY</Tag></div>
-            <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
+            <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05] text-white/95">
               {"Enterprise-grade,\nbuilt for hospitality."}
             </RevealText>
           </div>
@@ -586,9 +586,9 @@ export default function AgenticPage() {
       <section id="pricing" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 flex flex-col items-center">
-            <PixelIcon type="pricing" size={40} />
+            <PixelIcon type="pricing" size={40} dark />
             <div className="mt-4"><Tag>PRICING</Tag></div>
-            <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
+            <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05] text-white/95">
               {"One price.\nEverything included."}
             </RevealText>
           </div>
@@ -671,18 +671,18 @@ export default function AgenticPage() {
             WebkitBackdropFilter: "blur(18px)",
           }}
         />
-        {/* Colour fade from bottom to site bg #f5f4f0 */}
+        {/* Colour fade from bottom to dark site bg */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(to top, rgb(245,244,240) 0%, rgba(245,244,240,0.92) 18%, rgba(245,244,240,0.55) 35%, transparent 55%)",
+            background: "linear-gradient(to top, #0f172a 0%, rgba(15,23,42,0.92) 18%, rgba(15,23,42,0.55) 35%, transparent 55%)",
           }}
         />
         <div className="relative z-10 max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05] mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05] mb-6 text-white/95">
             Start building your<br />autonomous hotel operation.
           </h2>
-          <p className="text-sm text-black/45 leading-relaxed mb-10">
+          <p className="text-sm text-white/50 leading-relaxed mb-10">
             {"Join forward-thinking hotels running on Zuri AI — 24/7, no human needed in the loop."}
           </p>
           {!submitted ? (
@@ -696,17 +696,17 @@ export default function AgenticPage() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
-                className="flex-1 bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#111] placeholder:text-black/25 focus:outline-none focus:border-black/25 transition-colors"
+                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/35 focus:outline-none focus:border-white/25 transition-colors"
               />
               <button
                 type="submit"
-                className="px-8 py-3 bg-[#111] text-white text-sm rounded-xl hover:bg-[#333] transition-colors tracking-widest font-medium"
+                className="px-8 py-3 bg-emerald-500 text-white text-sm rounded-xl hover:bg-emerald-400 transition-colors tracking-widest font-medium"
               >
                 REQUEST A LIVE DEMO
               </button>
             </form>
           ) : (
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-emerald-600/20 bg-emerald-50 text-emerald-700 text-sm">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-sm">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               {"You're on the list. We'll be in touch."}
             </div>
@@ -716,9 +716,9 @@ export default function AgenticPage() {
 
 
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
-      <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
+      <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-white/[0.06]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <span className="font-pixel text-xs tracking-[0.25em] text-black/50">ZURI AI</span>
+          <span className="font-pixel text-xs tracking-[0.25em] text-white/50">ZURI AI</span>
 
           {/* Nav sections */}
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
@@ -729,7 +729,7 @@ export default function AgenticPage() {
               { label: "Integrations", href: "#integrations" },
               { label: "Pricing",      href: "#pricing" },
             ].map(l => (
-              <a key={l.label} href={l.href} className="text-xs text-black/35 hover:text-black/70 transition-colors tracking-widest">{l.label}</a>
+              <a key={l.label} href={l.href} className="text-xs text-white/40 hover:text-white/70 transition-colors tracking-widest">{l.label}</a>
             ))}
           </div>
 
@@ -741,12 +741,12 @@ export default function AgenticPage() {
               { label: "Docs",    href: "#" },
               { label: "GitHub",  href: "#" },
             ].map(l => (
-              <a key={l.label} href={l.href} className="text-xs text-black/25 hover:text-black/55 transition-colors tracking-widest">{l.label}</a>
+              <a key={l.label} href={l.href} className="text-xs text-white/30 hover:text-white/60 transition-colors tracking-widest">{l.label}</a>
             ))}
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-black/[0.04]">
-          <span className="text-xs text-black/20">ZURI AI · Powered by Claude · Built in Zanzibar, Tanzania</span>
+        <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-white/[0.04]">
+          <span className="text-xs text-white/25">ZURI AI · Powered by Claude · Built in Zanzibar, Tanzania</span>
         </div>
       </footer>
     </div>

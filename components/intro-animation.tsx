@@ -44,13 +44,13 @@ export function IntroAnimation({ onDone }: { onDone: () => void }) {
   return (
     <div className="fixed inset-0 z-[100] pointer-events-none" aria-hidden="true">
 
-      {/* Gradient curtain — retracts upward, revealing mountains from bottom */}
+      {/* Gradient curtain — retracts upward, revealing video from bottom */}
       <div
         className="absolute inset-x-0 top-0"
         style={{
           bottom: curtainUp ? "100%" : "0%",
           transition: curtainUp ? "bottom 1.3s cubic-bezier(0.76, 0, 0.24, 1)" : "none",
-          background: "#f5f4f1",
+          background: "#0f172a",
         }}
       />
 
@@ -83,7 +83,7 @@ export function IntroAnimation({ onDone }: { onDone: () => void }) {
             return (
               <span
                 key={i}
-                className="font-sans font-bold text-[#111] leading-none select-none"
+                className="font-sans font-bold text-white leading-none select-none"
                 style={{
                   fontSize: `calc((100vw - 64px) / ${LETTERS.length})`,
                   letterSpacing: "0.05em",
