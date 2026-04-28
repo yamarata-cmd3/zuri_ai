@@ -9,7 +9,7 @@ const AGENTS = [
     desc: "Auto-assigns tasks by role, shift, and priority. Tracks completion in real time. Escalates overdue work to managers via Slack and mobile.",
     stats: [{ v: "100%", l: "task accountability" }, { v: "-40%", l: "missed tasks" }],
     img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/researcher-CvhqOuV6irGwBOnJoTGFlXdbyYBRjb.png",
-    dark: false,
+    dark: true,
   },
   {
     label: "SECURITY INTELLIGENCE",
@@ -25,7 +25,7 @@ const AGENTS = [
     desc: "Live POS integration. Matches every order to every payment. Flags discrepancies before shift ends. Auto-generates daily revenue reports.",
     stats: [{ v: "+34%", l: "revenue visibility" }, { v: "$0", l: "unexplained losses" }],
     img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/analyst-Ysxnqg7Fpy2cfA56PiIttv1KximMhT.png",
-    dark: false,
+    dark: true,
   },
   {
     label: "GUEST EXPERIENCE",
@@ -42,11 +42,9 @@ const STICKY_STEP  = 16   // each card stacks 16px lower
 const SCALE_STEP   = 0.04 // scale reduction per card stacked on top
 const OFFSET_STEP  = 8    // px pushed down per card stacked on top
 
-function Tag({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] tracking-widest font-sans ${
-      dark ? "text-white/50 bg-white/[0.08]" : "text-black/40 bg-black/[0.04]"
-    }`}>
+    <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-white/50 bg-white/[0.08]">
       {children}
     </span>
   )
@@ -103,15 +101,11 @@ export function StackingAgentCards() {
               }}
             >
               <div 
-                className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
-                  agent.dark 
-                    ? "border border-white/[0.06]" 
-                    : "bg-white border border-black/[0.06] shadow-sm"
-                }`}
-                style={agent.dark ? {
+                className="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/[0.06]"
+                style={{
                   background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
                   boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
-                } : undefined}
+                }}
               >
 
                 {/* ── MOBILE: image top, fades out at bottom ── */}
@@ -140,9 +134,7 @@ export function StackingAgentCards() {
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: agent.dark 
-                          ? "linear-gradient(to right, #0f172a 0%, transparent 55%)"
-                          : "linear-gradient(to right, #ffffff 0%, transparent 55%)",
+                        background: "linear-gradient(to right, #0f172a 0%, transparent 55%)",
                       }}
                     />
                   </div>
@@ -152,26 +144,23 @@ export function StackingAgentCards() {
                 <div
                   className="relative z-10 p-8"
                   style={{ maxWidth: agent.img ? undefined : "100%" }}
-                  // On desktop limit to left 60% so text doesn't overlap image
                 >
                   <div className="md:max-w-[60%]">
                     <div className="flex items-start justify-between mb-6">
-                      <Tag dark={agent.dark}>{agent.label}</Tag>
-                      {agent.dark && (
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: "0 0 8px rgba(74,222,128,0.4)" }} />
-                          <span className="text-[10px] text-emerald-400/80 font-mono tracking-wide">active</span>
-                        </div>
-                      )}
+                      <Tag>{agent.label}</Tag>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: "0 0 8px rgba(74,222,128,0.4)" }} />
+                        <span className="text-[10px] text-emerald-400/80 font-mono tracking-wide">active</span>
+                      </div>
                     </div>
-                    <h3 className={`text-xl font-medium mb-3 ${agent.dark ? "text-white/95" : "text-black/85"}`}>{agent.title}</h3>
-                    <p className={`text-sm leading-relaxed mb-8 ${agent.dark ? "text-white/50" : "text-black/45"}`}>{agent.desc}</p>
+                    <h3 className="text-xl font-medium mb-3 text-white/95">{agent.title}</h3>
+                    <p className="text-sm leading-relaxed mb-8 text-white/50">{agent.desc}</p>
                   </div>
-                  <div className={`flex gap-8 pt-6 border-t ${agent.dark ? "border-white/[0.08]" : "border-black/[0.06]"}`}>
+                  <div className="flex gap-8 pt-6 border-t border-white/[0.08]">
                     {agent.stats.map(s => (
                       <div key={s.l}>
-                        <div className={`text-2xl font-light ${agent.dark ? "text-white/90" : ""}`}>{s.v}</div>
-                        <div className={`text-[11px] tracking-widest mt-0.5 ${agent.dark ? "text-white/35" : "text-black/35"}`}>{s.l}</div>
+                        <div className="text-2xl font-light text-white/90">{s.v}</div>
+                        <div className="text-[11px] tracking-widest mt-0.5 text-white/35">{s.l}</div>
                       </div>
                     ))}
                   </div>

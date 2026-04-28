@@ -49,16 +49,18 @@ function BentoCard({ children, className = "", delay = 0 }: { children: React.Re
   return (
     <div
       ref={ref}
-      className={`group relative rounded-2xl border border-black/[0.07] bg-white overflow-hidden transition-all duration-700 hover:border-black/[0.15] hover:bg-[#fafaf8] ${className}`}
+      className={`group relative rounded-2xl border border-white/[0.06] overflow-hidden transition-all duration-700 hover:border-white/[0.12] ${className}`}
       style={{
+        background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms, border-color 0.3s ease, background-color 0.3s ease`,
+        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms, border-color 0.3s ease`,
       }}
     >
       {/* Hover glow spot */}
       <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,0,0,0.03), transparent 60%)" }}
+        style={{ background: "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.03), transparent 60%)" }}
       />
       {children}
     </div>
@@ -210,30 +212,48 @@ export default function AgenticPage() {
               </div>
             </div>
 
-            {/* White card - top right */}
-            <div className="col-span-12 md:col-span-4 p-7 min-h-[220px] rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-              <div className="w-10 h-10 rounded-xl border border-black/[0.06] bg-slate-50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/50"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            {/* Dark card - top right */}
+            <div 
+              className="col-span-12 md:col-span-4 p-7 min-h-[220px] rounded-2xl border border-white/[0.06] overflow-hidden"
+              style={{
+                background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
+              }}
+            >
+              <div className="w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-amber-400"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
-              <h3 className="text-lg font-medium mb-2 text-black/85">AI Camera Surveillance</h3>
-              <p className="text-sm text-black/45 leading-relaxed">Detects theft, loitering, unauthorized access, and staff inactivity in real time.</p>
+              <h3 className="text-lg font-medium mb-2 text-white/95">AI Camera Surveillance</h3>
+              <p className="text-sm text-white/50 leading-relaxed">Detects theft, loitering, unauthorized access, and staff inactivity in real time.</p>
             </div>
 
             {/* Bottom row - 3 cards */}
-            <div className="col-span-12 md:col-span-4 p-7 min-h-[200px] rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-              <div className="w-10 h-10 rounded-xl border border-black/[0.06] bg-slate-50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/50"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+            <div 
+              className="col-span-12 md:col-span-4 p-7 min-h-[200px] rounded-2xl border border-white/[0.06] overflow-hidden"
+              style={{
+                background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
+              }}
+            >
+              <div className="w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-blue-400"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
               </div>
-              <h3 className="text-lg font-medium mb-2 text-black/85">Revenue & POS Control</h3>
-              <p className="text-sm text-black/45 leading-relaxed">Every transaction tracked. Gaps caught automatically. Daily revenue reports.</p>
+              <h3 className="text-lg font-medium mb-2 text-white/95">Revenue & POS Control</h3>
+              <p className="text-sm text-white/50 leading-relaxed">Every transaction tracked. Gaps caught automatically. Daily revenue reports.</p>
             </div>
 
-            <div className="col-span-12 md:col-span-4 p-7 min-h-[200px] rounded-2xl bg-white border border-black/[0.06] shadow-sm">
-              <div className="w-10 h-10 rounded-xl border border-black/[0.06] bg-slate-50 flex items-center justify-center mb-5">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-black/50"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div 
+              className="col-span-12 md:col-span-4 p-7 min-h-[200px] rounded-2xl border border-white/[0.06] overflow-hidden"
+              style={{
+                background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
+              }}
+            >
+              <div className="w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-purple-400"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h3 className="text-lg font-medium mb-2 text-black/85">Inventory Intelligence</h3>
-              <p className="text-sm text-black/45 leading-relaxed">Real-time stock levels across bar, kitchen, supplies. Predicts shortages days ahead.</p>
+              <h3 className="text-lg font-medium mb-2 text-white/95">Inventory Intelligence</h3>
+              <p className="text-sm text-white/50 leading-relaxed">Real-time stock levels across bar, kitchen, supplies. Predicts shortages days ahead.</p>
             </div>
 
             {/* Dark card - bottom right */}
@@ -291,7 +311,7 @@ export default function AgenticPage() {
 
           {/* Split layout: White step cards left, Dark reports terminal right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left: White numbered step cards - matching reference image style */}
+            {/* Left: Dark numbered step cards - matching live agent feed theme */}
             <div className="space-y-4">
               {[
                 { n: "01", title: "Connect", desc: "Plug into existing systems", accent: false },
@@ -301,22 +321,22 @@ export default function AgenticPage() {
               ].map((step) => (
                 <div 
                   key={step.n} 
-                  className={`p-5 rounded-2xl flex items-center gap-5 transition-all duration-300 ${
-                    step.accent 
-                      ? "bg-slate-50 border border-slate-200/80 shadow-sm" 
-                      : "bg-white border border-black/[0.06]"
-                  }`}
+                  className="p-5 rounded-2xl flex items-center gap-5 transition-all duration-300 border border-white/[0.06]"
+                  style={{
+                    background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
+                  }}
                 >
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
                     step.accent 
-                      ? "border border-emerald-200 bg-emerald-50" 
-                      : "border border-black/[0.06] bg-white"
+                      ? "border border-emerald-500/30 bg-emerald-500/10" 
+                      : "border border-white/10 bg-white/5"
                   }`}>
-                    <span className={`font-mono text-sm ${step.accent ? "text-emerald-600/70" : "text-black/25"}`}>{step.n}</span>
+                    <span className={`font-mono text-sm ${step.accent ? "text-emerald-400" : "text-white/40"}`}>{step.n}</span>
                   </div>
                   <div>
-                    <h3 className="text-base font-medium mb-0.5 text-black/85">{step.title}</h3>
-                    <p className="text-sm text-black/40">{step.desc}</p>
+                    <h3 className="text-base font-medium mb-0.5 text-white/95">{step.title}</h3>
+                    <p className="text-sm text-white/50">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -468,7 +488,7 @@ export default function AgenticPage() {
 
           {/* Asymmetric grid: left text + title, right interactive audit log */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left side — descriptions in white card style */}
+            {/* Left side — descriptions in dark card style matching live agent feed */}
             <div className="space-y-4">
               {[
                 { label: "Full Audit Trail", desc: "Every task, alert, and transaction logged with timestamp and staff ID. Complete traceability." },
@@ -477,13 +497,17 @@ export default function AgenticPage() {
               ].map((item, i) => (
                 <div 
                   key={item.label} 
-                  className="p-5 rounded-2xl bg-white border border-black/[0.06] shadow-sm"
+                  className="p-5 rounded-2xl border border-white/[0.06]"
+                  style={{
+                    background: "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
+                  }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`w-1 h-12 rounded-full shrink-0 ${i === 0 ? "bg-emerald-400" : "bg-black/10"}`} />
+                    <div className={`w-1 h-12 rounded-full shrink-0 ${i === 0 ? "bg-emerald-400" : "bg-white/15"}`} />
                     <div>
-                      <h3 className="text-base font-medium mb-1.5 text-black/85">{item.label}</h3>
-                      <p className="text-sm text-black/45 leading-relaxed">{item.desc}</p>
+                      <h3 className="text-base font-medium mb-1.5 text-white/95">{item.label}</h3>
+                      <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -492,7 +516,7 @@ export default function AgenticPage() {
               {/* Compliance badges */}
               <div className="pt-2 flex flex-wrap gap-2">
                 {["GDPR Compliant", "End-to-end Encryption", "Audit Logs", "Staff Privacy"].map((badge) => (
-                  <div key={badge} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 border border-black/[0.04] text-xs text-black/40">
+                  <div key={badge} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/[0.06] text-xs text-white/50">
                     <span className="w-1 h-1 rounded-full bg-emerald-400" />
                     {badge}
                   </div>
@@ -570,39 +594,36 @@ export default function AgenticPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl mx-auto" onMouseMove={handleMouse}>
-            {/* Standard Plan */}
+            {/* Standard Plan - Dark theme matching live agent feed */}
             <BentoCard
-              className="p-8 flex flex-col border-black/20 bg-[#F0EEE8]"
+              className="p-8 flex flex-col"
               delay={0}
             >
               <div className="mb-8">
-                <div className="font-pixel text-[11px] tracking-widest text-black/40 mb-4">ZURI AI FULL SYSTEM</div>
+                <div className="font-pixel text-[11px] tracking-widest text-white/45 mb-4">ZURI AI FULL SYSTEM</div>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-light">$400</span>
-                  <span className="text-black/40 text-sm">/mo</span>
+                  <span className="text-4xl font-light text-white/95">$400</span>
+                  <span className="text-white/40 text-sm">/mo</span>
                 </div>
-                <p className="text-xs text-black/35 tracking-wide">vs. Hiring an Operations Manager: $2,000+/month</p>
+                <p className="text-xs text-white/35 tracking-wide">vs. Hiring an Operations Manager: $2,000+/month</p>
               </div>
               <ul className="space-y-3 flex-1 mb-8">
                 {["All six modules included", "Unlimited tasks", "Unlimited camera feeds", "Slack & WhatsApp integration", "Daily reports", "Dedicated setup support", "No contract, cancel anytime"].map(f => (
-                  <li key={f} className="flex items-center gap-3 text-sm text-black/55">
-                    <div className="w-1 h-1 rounded-full bg-black/25 shrink-0" />
+                  <li key={f} className="flex items-center gap-3 text-sm text-white/60">
+                    <div className="w-1 h-1 rounded-full bg-white/30 shrink-0" />
                     {f}
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-3 rounded-xl text-sm tracking-widest transition-all duration-200 bg-[#111] text-white hover:bg-[#333]">
+              <button className="w-full py-3 rounded-xl text-sm tracking-widest transition-all duration-200 bg-emerald-500 text-white hover:bg-emerald-400">
                 GET STARTED
               </button>
             </BentoCard>
 
-            {/* Enterprise Plan — Dark Theme */}
-            <div 
-              className="rounded-2xl border border-white/[0.1] p-8 flex flex-col overflow-hidden"
-              style={{
-                background: "#0f0f0f",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3)",
-              }}
+            {/* Enterprise Plan - Dark theme matching live agent feed */}
+            <BentoCard
+              className="p-8 flex flex-col"
+              delay={100}
             >
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-4">
@@ -610,7 +631,7 @@ export default function AgenticPage() {
                   <span className="text-[9px] tracking-widest text-amber-400/80 bg-amber-400/10 px-2 py-1 rounded-full border border-amber-400/20">PREMIUM</span>
                 </div>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-light text-white/90">Custom</span>
+                  <span className="text-4xl font-light text-white/95">Custom</span>
                 </div>
                 <p className="text-xs text-white/40 tracking-wide">For hotel groups & chains</p>
               </div>
@@ -625,7 +646,7 @@ export default function AgenticPage() {
               <button className="w-full py-3 rounded-xl text-sm tracking-widest transition-all duration-200 border border-white/15 text-white/80 hover:border-white/30 hover:text-white hover:bg-white/[0.05]">
                 CONTACT SALES
               </button>
-            </div>
+            </BentoCard>
           </div>
         </div>
       </section>
