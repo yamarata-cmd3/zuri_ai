@@ -279,7 +279,7 @@ export default function AgenticPage() {
       </section>
 
       {/* ── BUILD YOUR AGENTS (4 cards) ───────────────────────────────────── */}
-      <section id="agents" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
+      <section id="agents" className="py-32 px-6 md:px-12 lg:px-20 border-t border-white/[0.06]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div>
@@ -476,7 +476,7 @@ export default function AgenticPage() {
       </section>
 
       {/* ── SECURITY & OBSERVABILITY ──────────────────────────────────��──── */}
-      <section id="security" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
+      <section id="security" className="py-32 px-6 md:px-12 lg:px-20 border-t border-white/[0.06]">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="platform" size={40} dark />
@@ -583,7 +583,7 @@ export default function AgenticPage() {
       </section>
 
       {/* ── PRICING ───────────────────────────────────────────────────────── */}
-      <section id="pricing" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
+      <section id="pricing" className="py-32 px-6 md:px-12 lg:px-20 border-t border-white/[0.06]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 flex flex-col items-center">
             <PixelIcon type="pricing" size={40} dark />
@@ -652,7 +652,7 @@ export default function AgenticPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section className="relative py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06] overflow-hidden">
+      <section className="relative py-32 px-6 md:px-12 lg:px-20 border-t border-white/[0.06] overflow-hidden">
         {/* Glass panels image — anchored to bottom center */}
         <img
           src="/images/footer.png"

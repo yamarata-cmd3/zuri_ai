@@ -217,10 +217,10 @@ export function GlitchBackground({ isHovered }: GlitchBackgroundProps) {
       >
         <GlitchScene isHovered={isHovered} />
       </Canvas>
-      {/* Gradient noir du bas vers le haut */}
+      {/* Dark gradient matching live agent feed theme */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(to top, black 0%, black 15%, transparent 60%)" }}
+        style={{ background: "linear-gradient(to top, #0f172a 0%, #0f172a 15%, transparent 60%)" }}
       />
     </div>
   )

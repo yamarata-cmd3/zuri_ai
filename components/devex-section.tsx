@@ -134,22 +134,22 @@ export function DevExSection() {
   const step = STEPS[active]
 
   return (
-    <section id="devex" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
+    <section id="devex" className="py-32 px-6 md:px-12 lg:px-20 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/[0.05] border border-black/[0.06] text-[10px] tracking-widest text-black/40 uppercase">
+          <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.06] text-[10px] tracking-widest text-white/50 uppercase">
             INTEGRATIONS
           </div>
-          <h2 className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
+          <h2 className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05] text-white/95">
             Connects to what<br />you already use.
           </h2>
-          <p className="mt-4 text-sm text-black/45 leading-relaxed max-w-md">
+          <p className="mt-4 text-sm text-white/50 leading-relaxed max-w-md">
             Slack for alerts. WhatsApp for guest communication. Your existing cameras. Your POS system. Zuri plugs in — no rip-and-replace.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 items-stretch">
-          {/* Left — 4 clickable step cards, equal height, no flex stretch */}
+          {/* Left — 4 clickable step cards, equal height, dark theme */}
           <div className="flex flex-col gap-3">
             {STEPS.map((s, i) => (
               <button
@@ -157,19 +157,21 @@ export function DevExSection() {
                 onClick={() => selectStep(i)}
                 className="flex-1 text-left rounded-2xl border transition-all duration-200 p-6 group"
                 style={{
-                  background: active === i ? "rgba(0,0,0,0.04)" : "rgba(255,255,255,0.7)",
-                  borderColor: active === i ? "rgba(0,0,0,0.12)" : "rgba(0,0,0,0.06)",
+                  background: active === i 
+                    ? "linear-gradient(145deg, #1e293b 0%, #0f172a 100%)" 
+                    : "rgba(255,255,255,0.03)",
+                  borderColor: active === i ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.06)",
                   boxShadow: active === i
-                    ? "0 1px 3px rgba(0,0,0,0.06)"
-                    : "0 1px 2px rgba(0,0,0,0.03)",
+                    ? "0 8px 32px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)"
+                    : "0 2px 8px rgba(0,0,0,0.15)",
                 }}
               >
                 <div className="flex gap-4 items-start">
                   <div
                     className="flex items-center justify-center w-8 h-8 rounded-lg text-xs font-light shrink-0 transition-colors duration-200"
                     style={{
-                      background: active === i ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.04)",
-                      color: active === i ? "rgba(0,0,0,0.7)" : "rgba(0,0,0,0.35)",
+                      background: active === i ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)",
+                      color: active === i ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.4)",
                     }}
                   >
                     {s.num}
@@ -177,11 +179,11 @@ export function DevExSection() {
                   <div className="min-w-0">
                     <p
                       className="text-sm font-light transition-colors duration-200"
-                      style={{ color: active === i ? "rgba(0,0,0,0.8)" : "rgba(0,0,0,0.5)" }}
+                      style={{ color: active === i ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.6)" }}
                     >
                       {s.title}
                     </p>
-                    <p className="text-xs mt-0.5" style={{ color: "rgba(0,0,0,0.28)" }}>{s.desc}</p>
+                    <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>{s.desc}</p>
                   </div>
                 </div>
               </button>
